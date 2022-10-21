@@ -23,7 +23,7 @@ int maxsubarray(int arr[], int n)
 }
 int main()
 {
-    int arr[] = {-5,4,-1,7,-8};
+    int arr[] = {5,-4,-2,6,-1};
     int n = sizeof(arr)/sizeof(arr[0]);
     int res = maxsubarray(arr, n);
     printf("%d", res);
