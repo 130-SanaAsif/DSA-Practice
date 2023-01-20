@@ -10,25 +10,28 @@ void printArray(vector<int>&a){
     cout<<endl;
 }
 
-void FindSmaller(vector<int>&a){
+void FindLarger(vector<int>&a){
     stack<int>s;
     for(int i=0; i<a.size(); i++){
-        while(!s.empty() && s.top() >= a[i]){
+        while(!s.empty() && s.top() <= a[i]){
             s.pop();
         }
         if(s.empty()){
             cout<<"-1 ";
         }
         else{
-           cout<<s.top()<<" ";
+            cout<<s.top()<<" ";
         }
         s.push(a[i]);
     }
 }
 
 int main(){
-    vector<int>a = {1,3,0,2,5};
+    vector<int>a = {10, 4, 2, 20, 40, 12, 30};
+    cout<<"Before..."<<endl;
     printArray(a);
-    FindSmaller(a);
+    cout<<"After..."<<endl;
+    FindLarger(a);
+    cout<<endl;
     return 0;
 }
