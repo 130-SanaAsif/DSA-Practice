@@ -44,7 +44,7 @@ class Solution {
         int width, height;
         int n = arr.size();
         stack<int>s;
-        for(int i=0; i<n; i++){
+        for(int i=0; i<=n; i++){
             while(!s.empty() && (i == n || arr[s.top()] >= arr[i])){
                 height = arr[s.top()];
                 s.pop();
@@ -60,7 +60,7 @@ class Solution {
     }
 };
 int main() {
-  vector<int> heights = {2, 1, 5, 6, 2, 3, 1};
+  vector<int> heights = {1,2,3,4,5};
   Solution obj;
   cout << "The largest area in the histogram is " << obj.largestRectangleArea(heights); 
   return 0;
