@@ -31,15 +31,15 @@ class queue{
             cout<<"Error";
             return -1;
         }
-        if(s2.empty()){
-            while (!s1.empty())
+        if(s1.empty()){
+            while (!s2.empty())
         {
-            s2.push(s1.top());
-            s1.pop();
+            s1.push(s2.top());
+            s2.pop();
         }
         }
-        int topval = s2.top();
-        s2.pop();
+        int topval = s1.top();
+        s1.pop();
         return topval;
     }
 
