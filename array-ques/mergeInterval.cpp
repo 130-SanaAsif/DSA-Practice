@@ -15,6 +15,7 @@ vector<vector<int>>mergeOverlappinInterval(vector<vector<int>>&interval){
     if(interval.size() == 0){
         return temp;
     }
+    sort(interval.begin(), interval.end());
     vector<int>v = interval[0];
     for(int i=0; i<interval.size(); i++){
         if(interval[i][0] <= v[1]){
