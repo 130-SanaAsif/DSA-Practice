@@ -82,8 +82,8 @@ void merge(int a[], int b[], int n, int m){
 }
 int main()
 {
-    int arr1[] = {1, 4, 8, 10};
-    int arr2[] = {2, 3, 9};
+    int arr1[] = {1,2,3,0,0,0};
+    int arr2[] = {2,5,6};
     int n = sizeof(arr1) / sizeof(arr1[0]);
     int m = sizeof(arr2) / sizeof(arr2[0]);
     cout << "Before Merging : " << endl;
