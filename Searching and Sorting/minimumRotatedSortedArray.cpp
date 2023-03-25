@@ -31,14 +31,14 @@ int minimum(vector<int>&arr){
             lo = mid+1;
         }
         else{
-            minVal = min(minVal,arr[hi]);
+            minVal = min(minVal,arr[mid]);
             hi = mid-1;
         }
     } 
     return minVal;
 }
 int main(){
-    vector<int>arr = {4,5,6,7,0,1,2};
+    vector<int>arr = {3,1,2};
     int res = minimum(arr);
     cout<<"Minimum Element : "<<res;
     return 0;
