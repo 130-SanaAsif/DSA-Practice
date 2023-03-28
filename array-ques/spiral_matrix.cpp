@@ -44,7 +44,9 @@ int main(){
            {9, 10, 11, 12},
            {13, 14, 15,16}};
     int r = 4, c = 4;
+    cout<<"Before Spiralling the array : "<<endl;
     printArray(mat,r,c);
+    cout<<"After Spiralling the array : "<<endl;
     SpiralMatrix(mat,r,c);
     return 0;
 }

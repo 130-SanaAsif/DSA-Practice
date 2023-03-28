@@ -34,14 +34,3 @@ void printArray(vector<int>&arr){
     cout<<endl;
 }
 
-int main(){
-    vector<int>a = {1,2,3,0,0,0};
-    vector<int>b = {2,5,6};
-    cout<<"Before Merging : "<<endl;
-    printArray(a);
-    printArray(b);
-    cout<<"After Merging : "<<endl;
-    merge(a,b);
-
-    return 0;
-}
