@@ -1,3 +1,25 @@
+//Knigh In Geekland.
+/*
+nput:
+n = 9
+m = 10
+start_x = 4, start_y = 5
+arr =
+0 0 0 2 0 2 0 2 0 0
+0 0 2 0 2 0 2 0 2 0
+0 2 0 0 1 2 0 0 0 2
+0 0 2 0 2 0 2 0 2 0
+0 2 0 2 0 0 0 2 0 2
+0 0 2 0 2 0 2 0 2 0
+0 2 0 0 0 2 0 0 0 2
+0 0 2 0 2 0 2 0 2 0
+0 0 0 2 0 2 0 2 0 0
+Output: 1
+Explanation: minimum knight have to take 1 steps to gain maximum points.
+Initially, the knight has 0 coins, he will take 1 step to collect 1 point (sum of cells denoted in red color).
+Now in the second step, he can collect points from all the cells colored green i.e. 64 points.
+But with his magical power, at the 1st step, he can fetch points from the (1 + 1)th step. Therefore he can collect 1 + 64 coins at step 1 only. Hence answer is 1.
+*/
 #include<bits/stdc++.h>
 using namespace std;
 class Solution{
@@ -68,3 +90,6 @@ int main(){
     cout<<res;
     return 0;
 }
+
+//TC - O(N*M).
+//SC - O(N*M).
