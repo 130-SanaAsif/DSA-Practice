@@ -41,8 +41,10 @@ int Stack::peek(){
         cout<<"Stack is empty";
         return 0;
     }
+    else{
     int x = a[top];
     return x;
+    }
 }
 
 bool Stack::isempty(){
