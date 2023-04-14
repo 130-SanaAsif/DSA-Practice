@@ -31,7 +31,7 @@ void infixToPostfix(string s)
 			st.push('(');
 
 		else if (c == ')') {
-			while (st.top() != '(') {
+			while (!st.empty() && st.top() != '(') {
 				result += st.top();
 				st.pop();
 			}
