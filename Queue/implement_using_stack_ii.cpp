@@ -56,3 +56,6 @@ int main(){
     }
     return 0;
 }
+
+//Time Complexity - O(1) or O(1)amortised.
+//Space Complexity - O(2N).

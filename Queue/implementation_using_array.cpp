@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-#define n 100
+#define n 1000
 
 class queue{
     int *arr;
