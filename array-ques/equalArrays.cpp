@@ -48,8 +48,8 @@ int equalArrays(vector<int> &a, vector<int> &b)
 }
 
 int main(){
-    vector<int>arr = {4,1,2,5};
-    vector<int>brr = {2,2,3,4,1};
+    vector<int>arr = {2,5,6};
+    vector<int>brr = {1,2,10};
 
     int res = equalArrays(arr,brr);
     cout<<"The array can be equal in maximum length is "<<res<<endl;
