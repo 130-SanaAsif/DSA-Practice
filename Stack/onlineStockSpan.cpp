@@ -32,7 +32,7 @@ vector<int>StockSpan(vector<int>price){
 } 
 
 int main(){
-    vector<int>arr = {30,60,80,75,90};
+    vector<int>arr = {100,80,60,70,60,75,85};
     vector<int>ans;
     ans = StockSpan(arr);
     for(int i=0; i<ans.size(); i++){
