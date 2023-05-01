@@ -55,3 +55,5 @@ int main(){
     cout<<"The array can be equal in maximum length is "<<res<<endl;
     return 0;
 }
+//Time Complexity - O(N).
+//Space Complexity - O(1).
