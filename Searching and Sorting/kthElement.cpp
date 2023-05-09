@@ -33,9 +33,12 @@ int kthElement(int arr1[], int arr2[], int n, int m, int k){
 //Optimised Approach using binary search.
 //Time Complexity - O(log(min(n,m))).
 //Space Complexity - O(1).
-int KthElement(int arr1[], int arr2[], int n, int m, int k){
+int KthElement(vector<int>&arr1, vector<int>&arr2, int k){
+    int n = arr1.size();
+    int m = arr2.size();
+
     if(m > n){
-        return KthElement(arr2,arr1,n,m,k);
+        return KthElement(arr2,arr1,k);
     }
     int low = max(0,k-m), high = min(k,n);
     while(low <= high){
@@ -59,14 +62,14 @@ int KthElement(int arr1[], int arr2[], int n, int m, int k){
     return 1;
 }
 int main(){
-    int arr1[] = {2,3,6,7,9};
-    int arr2[] = {1,4,8,10};
-    int n = sizeof(arr1)/sizeof(arr1[0]);
-    int m = sizeof(arr2)/sizeof(arr2[0]);
-    int k = 5;
+    vector<int>arr1 = {100, 112, 256, 349, 770};
+    vector<int>arr2 = {72, 86, 113, 119,256, 445, 892};
+    //int n = sizeof(arr1)/sizeof(arr1[0]);
+    //int m = sizeof(arr2)/sizeof(arr2[0]);
+    int k = 7;
     //int res = kthElement(arr1,arr2,m,n,k);
     //cout<<res<<endl;
-    int ans = KthElement(arr1,arr2,n,m,k);
+    int ans = KthElement(arr1,arr2,k);
     cout<<ans<<endl;
     return 0;
 }
