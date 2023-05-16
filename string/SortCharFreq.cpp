@@ -2,17 +2,13 @@
 using namespace std;
 
 string sortCharFreq(string s){
-    unordered_map<char,char>mp;
     string res = "";
+    int cnt = 0;
     for(int i=0; i<s.size(); i++){
-        mp[s[i]]++;
+        if(s[i] == s[i+1]);
+            cnt++;
     }
-    for(int i=0; i<s.size(); i++){
-        if(mp.find(s[i]) == s[i]){
-            res.push_back(s[i]);
-        }
-    }
-    return res;
+    
 }
 
 int main(){
