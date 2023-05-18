@@ -4,17 +4,17 @@ using namespace std;
 //Brute-Force Approach.
 //TC - O(n^2).
 //SC - O(1).
-//int CountInversion(vector<int>&arr){
-//    int cnt = 0;
-//    for(int i=0; i<arr.size();i++){
-//        for(int j=0; j<arr.size(); j++){
-//            if(i < j && arr[i] > arr[j]){
-//                cnt++;
-//            }
-//        }
-//    }
-//    return cnt;
-//}
+int CountInversion(vector<int>&arr){
+    int cnt = 0;
+    for(int i=0; i<arr.size();i++){
+        for(int j=0; j<arr.size(); j++){
+            if(i < j && arr[i] > arr[j]){
+                cnt++;
+            }
+        }
+    }
+    return cnt;
+}
 
 
 int merge(int arr[], int temp[], int left, int right, int mid){
@@ -56,9 +56,11 @@ int mergeSort(int arr[], int temp[], int left, int right){
 }
 int main(){
     int arr[] = {5,3,2,4,1};
+    //vector<int>arr = {5,4,3,2,1};
     int n = sizeof(arr)/sizeof(arr[0]);
     int temp[n];
     int res = mergeSort(arr,temp,0,n-1);
+    //int res = CountInversion(arr);
     cout<<res<<endl;
     return 0;
 }
