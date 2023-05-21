@@ -23,23 +23,26 @@ int merge(int arr[],int temp[],int left,int mid,int right)
     int i = left;
     int j = mid;
     int k = left;
+    int s = right;
+    
     while((i <= mid-1) && (j <= right)){
         if(arr[i] <= arr[j]){
             temp[k++] = arr[i++];
+           
         }
         else
         {
             temp[k++] = arr[j++];
+            
             inv_count = inv_count + (mid - i);
         }
     }
 
     while(i <= mid - 1)
         temp[k++] = arr[i++];
-
+       
     while(j <= right)
         temp[k++] = arr[j++];
-
     for(i = left ; i <= right ; i++)
         arr[i] = temp[i];
     
@@ -61,7 +64,7 @@ int merge_Sort(int arr[],int temp[],int left,int right)
     return inv_count;
 }
 int main(){
-    int arr[] = {5,3,2,1,4};
+    int arr[] = {5,3,2,4,1};
     //vector<int>arr = {5,4,3,2,1};
     int n = 5;
     int temp[n];
