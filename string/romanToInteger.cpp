@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Brute Force.
+//TC - O(n).
+//SC - O(1).
 int roman(char c){
         if(c == 'I'){
             return 1;
@@ -28,19 +31,45 @@ int roman(char c){
         }
     }
     int romanToInt(string s) {
-        int sum = 0;
-        int val;
+        int ans = 0;
         for(int i=0;i<s.size(); i++){
-            val = roman(s[i]);
-            if(s[i] == val){
-                sum += val;
+            int s1 = roman(s[i]);
+            if(i+1 < s.size()){
+                int s2 = roman(s[i+1]);
+                if(s1 >= s2){
+                    ans = ans+s1;
+                }
+                else{
+                    ans = ans+s2-s1;
+                    i++;
+                }
+            }
+            else{
+                ans = ans+s1;
             }
         }
-        return val;
+        return ans;
     }
 
+//Optimised Code.
+//TC - O(n).
+//SC - O(1).
+int RomanToInteger(string s){
+    int ans = 0;
+    unordered_map<char,int>mp{
+        {'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}};
+    for(int i=0; i<s.size(); i++){
+        if(mp[s[i]] < mp[s[i+1]]){
+            ans = ans+mp[s[i]];
+        }
+        else{
+            ans = ans-mp[s[i]];
+        }
+    }
+    return ans;
+}
 int main(){
-    string s = "III";
+    string s = "MCMXCIV";
     int res = romanToInt(s);
     cout<<res;
 }
