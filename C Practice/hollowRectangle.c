@@ -1,3 +1,11 @@
+//Hollow Rectangle print.
+/*
+    * * * * *
+    *       *
+    *       *
+    *       *
+    * * * * * 
+*/
 #include <stdio.h>
 int main()
 {
