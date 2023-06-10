@@ -21,7 +21,7 @@ int maximize_toy(vector<int>&arr, int k){
 }
 
 int main(){
-    vector<int>arr = {1, 12, 5, 111, 200, 1000, 10};
+    vector<int>arr = {1, 12, 5, 111, 200, 1000, 10,70};
     int k = 100;
     int res = maximize_toy(arr, k);
     cout<<res;

@@ -6,39 +6,46 @@ using namespace std;
 class solution
 {
 public:
-    vector<int>Permutation(vector<int> &arr)
+    vector<int>Permutation(vector<int> &A)
     {
-        int n = arr.size(), k, l;
-        for (k = n - 2; k >= 0; k--)
-        {
-            if (arr[k] < arr[k + 1])
-            {
-                break;
-            }
+        int n = A.size(); // size of the array.
+
+    // Step 1: Find the break point:
+    int ind = -1; // break point
+    for (int i = n - 2; i >= 0; i--) {
+        if (A[i] < A[i + 1]) {
+            // index i is the break point
+            ind = i;
+            break;
         }
-        if (k < 0)
-        {
-            reverse(arr.begin(), arr.end());
-            return arr;
+    }
+
+    // If break point does not exist:
+    if (ind == -1) {
+        // reverse the whole array:
+        reverse(A.begin(), A.end());
+        return A;
+    }
+
+    // Step 2: Find the next greater element
+    //         and swap it with arr[ind]:
+
+    for (int i = n - 1; i > ind; i--) {
+        if (A[i] > A[ind]) {
+            swap(A[i], A[ind]);
+            break;
         }
-        else
-        {
-            for (l = n - 1; l > k; l--)
-            {
-                if (arr[l] < arr[k])
-                {
-                    break;
-                }
-            }
-            swap(arr[l], arr[k]);
-            reverse(arr.begin() + k + 1, arr.end());
-            return arr;
-        }
+    }
+
+    // Step 3: reverse the right half:
+    reverse(A.begin() + ind + 1, A.end());
+
+    return A;
     }
 };
 
 int main(){
-    vector<int>arr = {1,2,3};
+    vector<int>arr = {1,3,2};
     solution s;
     vector<int>res = s.Permutation(arr);
     for(int i = 0; i<res.size(); i++){

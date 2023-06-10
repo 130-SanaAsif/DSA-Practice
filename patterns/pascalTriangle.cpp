@@ -11,14 +11,14 @@ void pascalTriangle(int n){
             else
                 arr[l][i] = arr[l - 1][i - 1] +
                             arr[l - 1][i];
-        cout << arr[l][i] << " ";
+        cout <<"  "<< arr[l][i]<< " ";
         }
         cout << "\n"; 
     }
 }
 
 int main(){
-    int n= 5;
+    int n = 5;
     pascalTriangle(n);
     return 0;
 }

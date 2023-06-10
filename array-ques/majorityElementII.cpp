@@ -62,7 +62,6 @@ vector<int>majorityElement(vector<int>&arr){
             cnt2--;
         }
     }
-
     vector<int>ans;
       cnt1 = cnt2 = 0;
     for(int i=0; i<arr.size(); i++){
