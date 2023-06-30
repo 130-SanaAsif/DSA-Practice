@@ -31,7 +31,7 @@ int minimumStep(string str){
 }
 
 int main(){
-    string str = "aabaa";
+    string str = "abcddcda";
     int res = minimumStep(str);
     cout<<"Minimum step required to make the string empty by removing consecutive's a's and b's : "<<res;
     return 0;
