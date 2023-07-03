@@ -15,7 +15,7 @@ string LongestCommon(vector<string>& s){
 }
 
 int main(){
-    vector<string>s = {"boat", "bore", "bone"};
+    vector<string>s = {"boat", "bare", "bone"};
     string res = LongestCommon(s);
     cout<<res;
     return 0;
