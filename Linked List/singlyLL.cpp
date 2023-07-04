@@ -1,54 +1,90 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class LinkedList{
-    public:
+class Node{
+public:
     int data;
-    LinkedList* next;
+    Node* next;
 
     //Constructor.
-    LinkedList(int data){
-        this -> data = data;
-        this -> next = NULL; 
+    Node(int data){
+        this->data = data;
+        this->next = NULL;
     }
 };
 
-void insertAtHead(LinkedList* &head, int d){
-    //create new node.
-    LinkedList* temp = new LinkedList(d);
+void inserAtHead(Node* &head, int d){
+    //Create new node - temp.
+
+    Node* temp = new Node(d);
     temp->next = head;
     head = temp;
 }
 
-void insertAtTail(LinkedList* &tail, int d){
-    //create new node.
-    LinkedList* temp = new LinkedList(d);
+void insertAtTail(Node* &tail, int d){
+    //Create new node - temp.
+
+    Node* temp = new Node(d);
     tail -> next = temp;
     tail = temp;
 }
-void printLL(LinkedList* &head){
-    //create temp node which will point to head.
-    LinkedList* temp = head;
+
+void insertInMiddle(Node* &head, int pos, int d){
+    //Create new node - temp;
+    Node* temp = head;
+    int cnt = 1;
+    while(cnt < pos-1){
+        temp = temp->next;
+        cnt++;
+    }
+
+    //Create new node for d.
+    Node* NodeToInsert = new Node(d);
+
+    NodeToInsert -> next = temp -> next;
+    temp -> next = NodeToInsert;
+}
+
+void printLinkedList(Node* &head){
+    //Create new node - temp;
+
+    Node* temp = head;
     while(temp != NULL){
-        cout << temp -> data <<" ";
+        cout<<temp->data<<" ";
         temp = temp->next;
     }
     cout<<endl;
 }
+
 int main(){
-    //create new node
-    LinkedList* node1 = new LinkedList(10);
+    //Create new node = node1.
+    Node* node1 = new Node(10);
 
     //cout<<node1->data<<endl;
     //cout<<node1->next<<endl;
-    LinkedList* head = node1;
-    LinkedList* tail = node1;
-    printLL(head);
 
-    insertAtTail(tail,12);
-    printLL(head);
+    //head pointed to node1.
+    Node* head = node1;
+    //tail pointed to node1.
+    Node* tail = node1;
+    printLinkedList(head);
 
-    insertAtTail(tail,15);
-    printLL(head);
+    //inserAtHead(head, 12);
+    insertAtTail(tail, 12);
+    printLinkedList(head);
+
+    //inserAtHead(head, 15);
+    insertAtTail(tail, 15);
+    printLinkedList(head);
+
+    insertAtTail(tail, 16);
+    printLinkedList(head);
+
+    insertAtTail(tail, 18);
+    printLinkedList(head);
+
+    insertInMiddle(head,4,22);
+    printLinkedList(head);
+
     return 0;
 }
