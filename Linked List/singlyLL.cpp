@@ -7,9 +7,20 @@ public:
     Node* next;
 
     //Constructor.
-    Node(int data){
-        this->data = data;
+    Node(int d){
+        this->data = d;
         this->next = NULL;
+    }
+
+    //Destructor.
+    ~Node(){
+        int value = this -> data;
+        //Memory free.
+        while(this->next != NULL){
+            delete next;
+            this->next = NULL;
+        }
+        cout<<"Memory is free for "<<value<<endl;
     }
 };
 
@@ -59,6 +70,72 @@ void insertInMiddle(Node* &tail, Node* &head, int pos, int d){
 
 }
 
+void deleteNode(int pos, Node* &head, Node* &tail){
+
+    //Delete at start node.
+    if(pos == 1){
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+
+    //Delete at middle node or last node.
+
+    Node* curr = head;
+    Node* prev = NULL;
+    int cnt = 1;
+    while(cnt < pos){
+        prev = curr;
+        curr = curr->next;
+        cnt++;
+    }
+    prev->next = curr->next;
+    curr->next = NULL;
+    delete curr;
+    
+    //Updating tail.
+    int d = prev->data;
+    if(prev->next == NULL){
+        insertAtTail(tail,d);
+        return;
+    }
+}
+
+void deleteNodeValue(int value, Node* &head, Node* &tail){
+
+    //Delete the first node.
+    if(head->data == value){
+        Node* curr = head;
+        head = head->next;
+        curr->next = NULL;
+        delete curr;
+    }
+
+    //Delete the middle or last node.
+    Node* curr = head;
+    Node* prev = NULL;
+    int cnt = 1;
+    while(curr != NULL){
+        prev = curr;
+        curr = curr->next;
+        cnt++;
+        if(curr->data == value){
+            break;
+        }
+    }
+    prev->next = curr->next;
+    curr->next = NULL;
+    delete curr;
+
+    //Updating tail.
+    int d = prev->data;
+    if(prev->next == NULL){
+            insertAtTail(tail,d);
+            return;
+        }
+}
+
 void printLinkedList(Node* &head){
     //Create new node - temp;
 
@@ -70,6 +147,15 @@ void printLinkedList(Node* &head){
     cout<<endl;
 }
 
+int getLengthNode(Node* &head){
+    int len = 0;
+    Node* temp = head;
+    while(temp != NULL){
+        len++;
+        temp = temp->next;
+    }
+    return len;
+}
 int main(){
     //Create new node = node1.
     Node* node1 = new Node(10);
@@ -103,5 +189,19 @@ int main(){
     cout<<"Head : "<<head->data<<endl;
     cout<<"Tail : "<<tail->data<<endl;
     
+    deleteNode(6,head,tail);
+    printLinkedList(head);
+
+    cout<<"Head : "<<head->data<<endl;
+    cout<<"Tail : "<<tail->data<<endl;
+
+    deleteNodeValue(18,head,tail);
+    printLinkedList(head);
+
+    cout<<"Head : "<<head->data<<endl;
+    cout<<"Tail : "<<tail->data<<endl;
+
+    cout<<getLengthNode(head);
+
     return 0;
 }
