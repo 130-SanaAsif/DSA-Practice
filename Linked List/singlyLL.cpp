@@ -29,7 +29,13 @@ void insertAtTail(Node* &tail, int d){
     tail = temp;
 }
 
-void insertInMiddle(Node* &head, int pos, int d){
+void insertInMiddle(Node* &tail, Node* &head, int pos, int d){
+    //Insert at start position.
+    if(pos == 1){
+        inserAtHead(head, d);
+        return;
+    }
+    
     //Create new node - temp;
     Node* temp = head;
     int cnt = 1;
@@ -38,11 +44,19 @@ void insertInMiddle(Node* &head, int pos, int d){
         cnt++;
     }
 
+    //Insert at last position.
+    if(temp -> next == NULL){
+        insertAtTail(tail,d);
+        return;
+    }
+
     //Create new node for d.
     Node* NodeToInsert = new Node(d);
 
     NodeToInsert -> next = temp -> next;
     temp -> next = NodeToInsert;
+
+
 }
 
 void printLinkedList(Node* &head){
@@ -83,8 +97,11 @@ int main(){
     insertAtTail(tail, 18);
     printLinkedList(head);
 
-    insertInMiddle(head,4,22);
+    insertInMiddle(tail,head,6,22);
     printLinkedList(head);
 
+    cout<<"Head : "<<head->data<<endl;
+    cout<<"Tail : "<<tail->data<<endl;
+    
     return 0;
 }
