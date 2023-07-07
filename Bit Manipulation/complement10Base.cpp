@@ -4,13 +4,14 @@ using namespace std;
 
 //Approach 1.
 
-//int Complement10Base(int n){
-//    int ans = 1;
-//    while(ans < n){
-//        ans = (ans << 1) + 1;
-//    }
-//    return ans^n;
-//}
+int ComplementBase(int n){
+    int ans = 1;
+    while(ans < n){
+        ans = ans << 1; 
+        ans++;
+    }
+    return ans^n;
+}
 
 
 //Approach 2.
@@ -33,7 +34,7 @@ int Complement10Base(int n){
 }
 
 int main(){
-   int n = 0;
-    int ans = Complement10Base(n);
+   int n = 10;
+    int ans = ComplementBase(n);
     cout<<ans;
 }
