@@ -6,12 +6,16 @@ void miniMax(vector<int>&arr){
     int sum = 0;
     int maxSum = 0;
     int minSum = 0;
-    for(int i=0; i<n; i++){
-        if(i == 0){
-            continue;
-        }
-        
+
+    sort(arr.begin(), arr.end());
+    for(int i=1; i<n; i++){
+        maxSum = maxSum+arr[i];
     }
+
+    for(int i=0; i<n-1; i++){
+        minSum = minSum+arr[i];
+    }
+    
     cout<<minSum<<" "<<maxSum<<endl;
 }
 
