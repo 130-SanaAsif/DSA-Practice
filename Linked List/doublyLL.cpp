@@ -14,22 +14,66 @@ public:
     }
 };
 
-void insertAtHead(Node* &head, int d){
-    //Create a node temp;
-    Node* temp = new Node(d);
+void insertAtHead(Node* &tail, Node* &head, int d){
 
-    temp->next = head;
-    head->prev = temp;
-    head = temp;
+    if(head == NULL){
+        Node* temp = new Node(d);
+        head = temp;
+        tail = temp;
+    }
+    else{//Create a node temp;
+        Node* temp = new Node(d);
+        temp->next = head;
+        head->prev = temp;
+        head = temp;
+    }
 }
 
-void insertAtTail(Node* &tail, int d){
-    //Create a node temp.
-    Node* temp = new Node(d);
+void insertAtTail(Node* &tail,Node* &head, int d){
+    
+    if(tail == NULL){
+        Node* temp = new Node(d);
+        tail = temp;
+        head = temp;
+    }
 
-    tail->next = temp;
-    temp->prev = tail;
-    tail = temp;
+    else{//Create a node temp.
+        Node* temp = new Node(d);
+
+        tail->next = temp;
+        temp->prev = tail;
+        tail = temp;
+    }
+}
+
+void insertAtPosition(Node* &tail,Node* &head, int pos, int d){
+    
+    if(pos == 1){
+        insertAtHead(tail, head, d);
+        return;
+    }
+    
+    //Create a node temp.
+
+    Node* temp = head;
+    int n = 1;
+    while(n < pos-1){
+        temp = temp->next;
+        n++;
+    }
+
+    if(temp->next == NULL){
+        insertAtTail(tail, head, d);
+        return;
+    }
+
+    Node* NodeToInsert = new Node(d);
+    
+    NodeToInsert->next = temp->next;
+    temp->next->prev = NodeToInsert;
+    temp->next = NodeToInsert;
+    NodeToInsert->prev = temp;
+
 }
 
 //Traversing a Linked List.
@@ -41,6 +85,7 @@ void printLinkedList(Node* &head){
         temp = temp->next;
     }
     cout<<endl;
+
 }
 
 //Return the length of linked list.
@@ -57,32 +102,66 @@ int getLengthNode(Node* &head){
 
 int main(){
 
-    Node* node1 = new Node(10);
+    //Node* node1 = new Node(10);
 
     //Head pointed to node1.
-    Node* head = node1;
+    //Node* head = node1;
+
+    Node* head = NULL;
 
     //Tail pointed to node1.
-    Node* tail = node1;
+    //Node* tail = node1;
+
+    Node* tail = NULL;
 
     printLinkedList(head);
 
-    //insertAtHead(head, 11);
-    //printLinkedList(head);
+    insertAtHead(tail,head, 11);
+    printLinkedList(head);
+   
 
-    insertAtTail(tail,12);
+    insertAtTail(tail,head,12);
     printLinkedList(head); 
 
-    insertAtTail(tail,13);
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
+
+    insertAtTail(tail,head,13);
     printLinkedList(head); 
 
-    insertAtTail(tail,32);
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
+
+    insertAtTail(tail,head,32);
     printLinkedList(head); 
 
-    insertAtTail(tail,23);
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
+
+    insertAtTail(tail,head,23);
     printLinkedList(head); 
 
-    cout<<"Length of Linked List : "<<getLengthNode(head);
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
 
+    insertAtPosition(tail,head,3,22);
+    printLinkedList(head);
+
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
+
+    insertAtPosition(tail,head,1,52);
+    printLinkedList(head);
+
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
+
+    insertAtPosition(tail,head,8,102);
+    printLinkedList(head);
+
+    //cout<<"head "<<head->data<<endl;
+    //cout<<"tail "<<tail->data<<endl;
+
+    cout<<"Length of Linked List : "<<getLengthNode(head)<<endl;
     return 0;
 }
