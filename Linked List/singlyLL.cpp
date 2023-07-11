@@ -16,7 +16,7 @@ public:
     ~Node(){
         int value = this -> data;
         //Memory free.
-        while(this->next != NULL){
+        if(this->next != NULL){
             delete next;
             this->next = NULL;
         }
@@ -81,24 +81,25 @@ void deleteNode(int pos, Node* &head, Node* &tail){
     }
 
     //Delete at middle node or last node.
-
-    Node* curr = head;
-    Node* prev = NULL;
-    int cnt = 1;
-    while(cnt < pos){
-        prev = curr;
-        curr = curr->next;
-        cnt++;
-    }
-    prev->next = curr->next;
-    curr->next = NULL;
-    delete curr;
+    else{
+        Node* curr = head;
+        Node* prev = NULL;
+        int cnt = 1;
+        while(cnt < pos){
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
     
-    //Updating tail.
-    int d = prev->data;
-    if(prev->next == NULL){
-        insertAtTail(tail,d);
-        return;
+        //Updating tail.
+        int d = prev->data;
+        if(prev->next == NULL){
+            insertAtTail(tail,d);
+            return;
+        }
     }
 }
 
@@ -113,27 +114,29 @@ void deleteNodeValue(int value, Node* &head, Node* &tail){
     }
 
     //Delete the middle or last node.
-    Node* curr = head;
-    Node* prev = NULL;
-    int cnt = 1;
-    while(curr != NULL){
-        prev = curr;
-        curr = curr->next;
-        cnt++;
-        if(curr->data == value){
+    else{
+        Node* curr = head;
+        Node* prev = NULL;
+        int cnt = 1;
+        while(curr != NULL){
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+            if(curr->data == value){
             break;
+            }
         }
-    }
-    prev->next = curr->next;
-    curr->next = NULL;
-    delete curr;
-
-    //Updating tail.
-    int d = prev->data;
-    if(prev->next == NULL){
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    
+        //Updating tail.
+        int d = prev->data;
+        if(prev->next == NULL){
             insertAtTail(tail,d);
             return;
         }
+    }
 }
 
 void printLinkedList(Node* &head){
