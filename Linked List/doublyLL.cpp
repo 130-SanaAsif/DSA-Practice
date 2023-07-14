@@ -98,23 +98,23 @@ void deleteNode(int pos, Node* &head, Node* &tail){
     }
 
     else{
-        Node* temp = head;
-        Node* cur = NULL;
+        Node* curr = head;
+        Node* prev = NULL;
 
         int cnt = 1;
         while(cnt < pos){
-            cur = temp;
-            temp = temp->next;
+            prev = curr;
+            curr = curr->next;
             cnt++;
         }
-        temp->prev = NULL;
-        cur->next = temp->next;
-        temp->next = NULL;
+        curr->prev = NULL;
+        prev->next = curr->next;
+        curr->next = NULL;
 
-        delete temp;
+        delete curr;
 
-        int d = cur->data;
-        if(cur->next == NULL){
+        int d = prev->data;
+        if(prev->next == NULL){
             insertAtTail(tail,head,d);
             return;
         }
@@ -199,6 +199,9 @@ int main(){
 
     cout<<"head "<<head->data<<endl;
     cout<<"tail "<<tail->data<<endl;
+
+    deleteNode(6,head,tail);
+    printLinkedList(head);
 
     cout<<"Length of Linked List : "<<getLengthNode(head)<<endl;
     return 0;

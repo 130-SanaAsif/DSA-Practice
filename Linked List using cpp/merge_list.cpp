@@ -43,6 +43,6 @@ int main(){
     Node*l2 = NULL;
     int arr[] = {1,2,3};
     int arr1[] = {4,5,6};
-    //display(l1);
-    //display(l2);
+    display(l1);
+    display(l2);
 }
