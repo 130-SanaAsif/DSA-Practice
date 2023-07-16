@@ -1,0 +1,1 @@
+cout<<"Memory is free for "<<value<<endl;

@@ -117,13 +117,13 @@ void deleteNodeValue(int value, Node* &head, Node* &tail){
     else{
         Node* curr = head;
         Node* prev = NULL;
-        int cnt = 1;
+      
         while(curr != NULL){
             prev = curr;
             curr = curr->next;
-            cnt++;
+     
             if(curr->data == value){
-            break;
+                break;
             }
         }
         prev->next = curr->next;
