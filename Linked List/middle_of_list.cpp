@@ -90,6 +90,7 @@ int main(){
     // insert(head, 2);
     //Node* result = MiddleNode(head);
     Node* ans = middleNode(head);
+    cout<<"Middle of list is "<<endl;
     display(ans);
     return 0;
 }
