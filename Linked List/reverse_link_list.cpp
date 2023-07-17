@@ -1,67 +1,69 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class Node{
+class node
+{
 public:
     int data;
-    Node* next;
+    node *next;
 
-    Node(int d){
-        this->data = d;
-        this->next = NULL;
+    node(int val)
+    {
+        data = val;
+        next = NULL;
     }
 };
 
-void insert(Node* &head, int d){
+void insert(node* &head, int val){
+    node* n = new node(val);
+
     if(head == NULL){
-        Node* temp = new Node(d);
-        head = temp;
+        head = n;
         return;
     }
-
-    Node* nodeToInsert = new Node(d);
-    Node* temp = head;
-    while(temp != NULL){
+    node*temp = head;
+    while(temp->next != NULL){
         temp = temp->next;
     }
-    temp->next = nodeToInsert;
+    temp->next = n;
 }
 
-Node* iterative(Node* head){
-
-    if(head == NULL || head->next == NULL){
-        return head;
+void display(node*head){
+    node*ptr = head;
+    while(ptr != NULL){
+        cout<<ptr->data<<"->";
+        ptr = ptr->next;
     }
-    Node* cur = head;
-    Node* prev = NULL;
-    Node* forward = NULL;
+    cout<<"NULL"<<endl;
+}
+
+
+ node* reverseList(node* head){
+   
+    node*prev = NULL;
+    node*cur = head;
+    node* forward = NULL;
     while(cur != NULL){
         forward = cur->next;
         cur->next = prev;
         prev = cur;
-        cur = cur->next;
+        cur = forward;
     }
-    head = prev;
+    head = prev; 
     return head;
 }
 
-void printList(Node* &head){
-    if(head == NULL){
-        cout<<"List is empty"<<endl;
-        return;
-    }
-    Node* temp = head;
-    while(temp != NULL){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<endl;
-}
-
 int main(){
-    Node* head = NULL;
-    insert(head,1);
-    insert(head,2);
-    insert(head,3);
-    printList(head);
+    node*head = NULL;
+    insert(head, 1);
+    insert(head, 2);
+    insert(head, 3);
+    insert(head, 4);
+    insert(head, 5);
+    insert(head, 6);
+    display(head);
+    node* result = reverseList(head);
+
+    display(result);
+    return 0;
 }

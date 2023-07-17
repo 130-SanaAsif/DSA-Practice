@@ -1,1 +1,2 @@
-cout<<"Memory is free for "<<value<<endl;
+iterative(&head);
+    // printList(head);
