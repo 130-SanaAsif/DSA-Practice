@@ -1,2 +1,1 @@
-iterative(&head);
-    // printList(head);
+insert(head, 3);

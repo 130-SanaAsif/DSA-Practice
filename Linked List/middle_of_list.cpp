@@ -26,20 +26,58 @@ void insert(Node* &head, int val){
     temp->next = n;
 }
 
-void diplay(Node* &n){
+void display(Node* &n){
     while(n != NULL){
         cout<<n->data<<" ";
         n = n->next;
     }
 }
-Node* MiddleNode(Node** head){
-    Node*slow = *head;
-    Node*fast = *head;
+
+//Brute Force Approach.
+int getlen(Node* head){
+    int len=0;
+    while (head != NULL)
+    {
+        len++;
+        head = head->next;
+    }
+    return len;
+}
+
+Node* middleNode(Node* head){
+    int len = getlen(head);
+    int ans = len/2;
+    Node* temp = head;
+    int cnt = 0;
+    while(cnt < ans){
+        temp = temp->next;
+        cnt++;
+    }
+    return temp;
+}
+
+
+//Optimised Approach.
+//TC - O(n).
+//SC - O(1).
+
+Node* MiddleNode(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    else if(head->next == NULL){
+        return head;
+    }
+    else if(head->next->next == NULL){
+        return head->next;
+    }
+    Node*slow = head;
+    Node*fast = head;
     while(fast != NULL && fast->next != NULL){
         slow = slow->next;
         fast = fast->next->next;
     }
-    return *head = slow;
+    return head = slow;
 }
 
 
@@ -48,9 +86,10 @@ int main(){
     insert(head, 4);
     insert(head, 7);
     insert(head, 5);
-    insert(head, 3);
+    // insert(head, 3);
     // insert(head, 2);
-    MiddleNode(&head);
-    diplay(head);
+    //Node* result = MiddleNode(head);
+    Node* ans = middleNode(head);
+    display(ans);
     return 0;
 }
