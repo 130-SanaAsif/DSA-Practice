@@ -72,10 +72,13 @@ Node* MiddleNode(Node* head){
         return head->next;
     }
     Node*slow = head;
-    Node*fast = head;
-    while(fast != NULL && fast->next != NULL){
+    Node*fast = head->next;
+    while(fast != NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+        }
         slow = slow->next;
-        fast = fast->next->next;
     }
     return head = slow;
 }
@@ -86,8 +89,9 @@ int main(){
     insert(head, 4);
     insert(head, 7);
     insert(head, 5);
-    // insert(head, 3);
-    // insert(head, 2);
+    insert(head, 3);
+    insert(head, 2);
+    insert(head, 8);
     //Node* result = MiddleNode(head);
     Node* ans = middleNode(head);
     cout<<"Middle of list is "<<endl;
