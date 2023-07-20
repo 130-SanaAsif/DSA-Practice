@@ -1,6 +1,6 @@
-insertSingle(head,6);
-    insertSingle(head,5);
-    insertSingle(head,7);
-    insertSingle(head,9);
-    insertSingle(head,1);
-    printSingle(head);
+insertCircular(head, 4);
+    insertCircular(head, 5);
+    insertCircular(head, 6);
+    insertCircular(head, 7);
+    insertCircular(head, 8);
+    printCircular(head);

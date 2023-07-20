@@ -82,25 +82,45 @@ bool detectLoop(Node* head){
     return false;
 }
 
+bool floydCycle(Node* head){
+    if(head == NULL){
+        return false;
+    }
+    Node* slow = head;
+    Node* fast = head;
+    while(slow != NULL && fast != NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+        }
+        slow = slow->next;
+        if(slow == fast){
+            cout<<"Cycle is present "<<slow->data<<endl;
+            return true;
+        }
+    }
+    return false;
+}
+
 int main(){
     Node* head = NULL;
     //Cicular linked list
-    // insertCircular(head, 4);
-    // insertCircular(head, 5);
-    // insertCircular(head, 6);
-    // insertCircular(head, 7);
-    // insertCircular(head, 8);
-    // printCircular(head);
+    insertCircular(head, 4);
+    insertCircular(head, 5);
+    insertCircular(head, 6);
+    insertCircular(head, 7);
+    insertCircular(head, 8);
+    printCircular(head);
 
     //Singly linked list.
-    insertSingle(head,6);
-    insertSingle(head,5);
-    insertSingle(head,7);
-    insertSingle(head,9);
-    insertSingle(head,1);
-    printSingle(head);
+    // insertSingle(head,6);
+    // insertSingle(head,5);
+    // insertSingle(head,7);
+    // insertSingle(head,9);
+    // insertSingle(head,1);
+    // printSingle(head);
 
-    if(detectLoop(head)){
+    if(floydCycle(head)){
         cout<<"Loop is present"<<endl;
     }
     else{
