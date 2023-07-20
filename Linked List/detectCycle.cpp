@@ -36,14 +36,13 @@ void insertCircular(Node* &head, int d){
         return;
     }
     else{
-        Node* newData = new Node(d);
+        Node* newNode = new Node(d);
         Node* temp = head;
-        while (temp->next != head)
-        {
+        while(temp->next != head){
             temp = temp->next;
         }
-        newData->next = temp->next;
-        temp->next = newData;
+        newNode->next = temp->next;
+        temp->next = newNode;
     }
 }
 
@@ -58,25 +57,27 @@ void printSingle(Node* &head){
 
 void printCircular(Node* &head){
     Node* temp = head;
-    
-    do
-    {
+    do{
         cout<<head->data<<"->";
         head = head->next;
     } while (head != temp);
+
     cout<<head->data<<endl;
 }
 
-bool isCircular(Node* head){
+bool detectLoop(Node* head){
     if(head == NULL){
-        return true;
+        return false;
     }
-    Node* temp = head->next;
-    while(temp != NULL && temp != head){
+    map<Node*, bool>visited;
+    Node* temp = head;
+    while(temp != NULL){
+        if(visited[temp] == true){
+            cout<<"Loop is present on "<<temp->data<<endl;
+            return true;
+        }
+        visited[temp] = true;
         temp = temp->next;
-    }
-    if(temp == head){
-        return true;
     }
     return false;
 }
@@ -92,18 +93,17 @@ int main(){
     // printCircular(head);
 
     //Singly linked list.
-    // insertSingle(head,6);
-    // insertSingle(head,5);
-    // insertSingle(head,7);
-    // insertSingle(head,9);
-    // insertSingle(head,1);
-    // printSingle(head);
-    
-    if(isCircular(head)){
-        cout<<"True"<<endl;
+    insertSingle(head,6);
+    insertSingle(head,5);
+    insertSingle(head,7);
+    insertSingle(head,9);
+    insertSingle(head,1);
+    printSingle(head);
+
+    if(detectLoop(head)){
+        cout<<"Loop is present"<<endl;
     }
     else{
-        cout<<"False"<<endl;
+        cout<<"Loop is absent"<<endl;
     }
-    return 0;
 }
