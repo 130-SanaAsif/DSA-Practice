@@ -24,9 +24,9 @@ int ratCount(int r, int unit, int n, int arr[]){
 }
 
 int main(){
-    int arr[] = {2,8,3,5,7,4,1,2};
+    int arr[] = {2,9,8,6,1,2};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int res = ratCount(7,2,n,arr);
+    int res = ratCount(6,2,n,arr);
     cout<<res<<endl;
     return 0;
 }
