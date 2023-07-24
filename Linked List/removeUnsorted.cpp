@@ -36,25 +36,28 @@ void printNode(Node* &head){
     }
     cout<<endl;
 }
+//Brute Force.
+//TC - O(n^2).
+//SC - o(1).
 
 Node* removeDuplicate(Node* head){
-    if(head == NULL || head->next == NULL){
+    if(head == NULL && head->next != NULL){
         return head;
     }
+
     Node* cur = head;
-    Node* np = NULL;
-    while (cur != NULL){
-        Node* temp = cur->next;
-        while(temp != NULL){
-            np = temp;
-            if(cur->data == temp->data){
+    while (cur != NULL && cur->next != NULL){
+        
+        Node* temp = cur;
+        while(temp->next != NULL){
+
+            if(cur->data == temp->next->data){
                 Node* nextPoint = temp->next->next;
-                Node* deleteTo = temp;
+                Node* deleteTo = temp->next;
                 delete(deleteTo);
-                np = nextPoint;
+                temp->next = nextPoint;
             }
             else{
-                
                 temp = temp->next;
             }
         }
@@ -62,6 +65,38 @@ Node* removeDuplicate(Node* head){
     }
     return head;
 }
+
+//Aproach-2.
+//TC - O(nlogn).
+//SC - O(1).
+Node* Sort(Node* &head){
+    if(head == NULL && head->next == NULL){
+        return head;
+    }
+
+    Node* cur = head;
+    Node* prev = NULL;
+    while(cur != NULL && cur->next != NULL){
+        //prev = cur;
+        if(cur->data > cur->next->data){
+            Node* nextPoint = cur->next->next;
+            cur->next = prev->next;
+            cur->next = nextPoint;
+        }
+        else{
+            prev = cur;
+            cur = cur->next;
+        }
+    }
+    return head;
+}
+Node* Remove(Node* head){
+    if(head == NULL && head->next == NULL){
+        return head;
+    }
+    return head;
+}
+
 
 int main(){
     Node* head = NULL;
@@ -73,7 +108,9 @@ int main(){
     insertNode(head, 8);
     insertNode(head, 2);
     printNode(head);
+
     Node* res = removeDuplicate(head);
     printNode(res);
+
     return 0;
 }
