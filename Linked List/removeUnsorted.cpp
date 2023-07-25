@@ -77,14 +77,11 @@ Node* Sort(Node* &head){
     Node* cur = head;
     Node* prev = NULL;
     while(cur != NULL && cur->next != NULL){
-        //prev = cur;
-        if(cur->data > cur->next->data){
-            Node* nextPoint = cur->next->next;
-            cur->next = prev->next;
-            cur->next = nextPoint;
+        Node* temp = cur->next;
+        if(cur->data > temp->data){
+            swap(temp->data,cur->data);
         }
         else{
-            prev = cur;
             cur = cur->next;
         }
     }
@@ -109,8 +106,12 @@ int main(){
     insertNode(head, 2);
     printNode(head);
 
+    Node* ans = Sort(head);
+    printNode(ans);
+
     Node* res = removeDuplicate(head);
     printNode(res);
 
+    
     return 0;
 }
