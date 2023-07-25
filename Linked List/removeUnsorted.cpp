@@ -69,31 +69,58 @@ Node* removeDuplicate(Node* head){
 //Aproach-2.
 //TC - O(nlogn).
 //SC - O(1).
-Node* Sort(Node* &head){
-    if(head == NULL && head->next == NULL){
+// Node* Sort(Node* &head){
+//     if(head == NULL && head->next == NULL){
+//         return head;
+//     }
+
+//     Node* cur = head;
+//     Node* prev = NULL;
+//     while(cur != NULL && cur->next != NULL){
+//         Node* temp = cur->next;
+//         if(cur->data > temp->data){
+//             swap(temp->data,cur->data);
+//         }
+//         else{
+//             cur = cur->next;
+//         }
+//     }
+//     return head;
+// }
+// Node* Remove(Node* head){
+//     if(head == NULL && head->next == NULL){
+//         return head;
+//     }
+//     return head;
+// }
+
+
+//Approach-3.
+//TC - O(n).
+//SC - O(n).
+Node* Remove(Node* head){
+    if(head == NULL){
         return head;
     }
-
-    Node* cur = head;
+    map<int, int>visit;
+    Node* curr = head;
     Node* prev = NULL;
-    while(cur != NULL && cur->next != NULL){
-        Node* temp = cur->next;
-        if(cur->data > temp->data){
-            swap(temp->data,cur->data);
+
+    while(curr != NULL){
+        visit[curr->data]++;
+        if(visit[curr->data] > 1){
+            Node* del = curr;
+            prev->next = curr->next;
+            curr = curr->next;
+            delete del;
         }
         else{
-            cur = cur->next;
+            prev = curr;
+            curr = curr->next;
         }
     }
     return head;
 }
-Node* Remove(Node* head){
-    if(head == NULL && head->next == NULL){
-        return head;
-    }
-    return head;
-}
-
 
 int main(){
     Node* head = NULL;
@@ -106,12 +133,11 @@ int main(){
     insertNode(head, 2);
     printNode(head);
 
-    Node* ans = Sort(head);
+    Node* ans = Remove(head);
     printNode(ans);
 
-    Node* res = removeDuplicate(head);
-    printNode(res);
+    // Node* res = removeDuplicate(head);
+    // printNode(res);
 
-    
     return 0;
 }
