@@ -67,6 +67,9 @@ void printCircular(Node* &head){
     cout<<head->data<<endl;
 }
 
+//Approach-1.
+//TC - O(N).
+//SC - O(1).
 bool isCircular(Node* head){
     if(head == NULL){
         return true;
@@ -77,6 +80,27 @@ bool isCircular(Node* head){
     }
     if(temp == head){
         return true;
+    }
+    return false;
+}
+
+
+//Approach-2.
+//TC - O(N).
+//SC - O(N).
+bool isCircularMap(Node* head){
+    if(head == NULL){
+        return head;
+    }
+    map<Node*, bool>mp;
+
+    Node* temp = head;
+    while(temp != NULL){
+        if(mp[temp] == true){
+            return true;
+        }
+        mp[temp] = true;
+        temp = temp->next;
     }
     return false;
 }
@@ -92,14 +116,14 @@ int main(){
     // printCircular(head);
 
     //Singly linked list.
-    // insertSingle(head,6);
-    // insertSingle(head,5);
-    // insertSingle(head,7);
-    // insertSingle(head,9);
-    // insertSingle(head,1);
-    // printSingle(head);
+    insertSingle(head,6);
+    insertSingle(head,5);
+    insertSingle(head,7);
+    insertSingle(head,9);
+    insertSingle(head,1);
+    printSingle(head);
     
-    if(isCircular(head)){
+    if(isCircularMap(head)){
         cout<<"True"<<endl;
     }
     else{
