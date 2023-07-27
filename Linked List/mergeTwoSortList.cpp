@@ -38,6 +38,7 @@ void printNode(Node* &head){
 }
 
 Node* solve(Node* &head1, Node* &head2){
+    //Casr for one data in head1 list.
     if(head1->next == NULL){
         head1->next = head2;
         return head1;
