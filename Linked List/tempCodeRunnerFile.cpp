@@ -1,2 +1,1 @@
-Node* res = middleNode(head);
-    printNode(res);
+insertNode(head,7);
