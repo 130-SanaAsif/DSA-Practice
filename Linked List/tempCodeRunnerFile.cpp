@@ -1,6 +1,2 @@
-if(isPalindrome(head)){
-        cout<<"True"<<endl;
-    }
-    else{
-        cout<<"False"<<endl;
-    }
+Node* res = middleNode(head);
+    printNode(res);
