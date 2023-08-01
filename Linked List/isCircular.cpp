@@ -84,7 +84,6 @@ bool isCircular(Node* head){
     return false;
 }
 
-
 //Approach-2.
 //TC - O(N).
 //SC - O(N).
