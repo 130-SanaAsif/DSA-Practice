@@ -13,7 +13,7 @@ int operationBinaryString(string s){
         else if(s[i] == 'B'){
             res = (s[i-1]-'0') | (s[i+1]-'0');
         }
-        if(s[i] == 'C'){
+        else if(s[i] == 'C'){
             res = (s[i-1]-'0') ^ (s[i+1]-'0');
         }
     }
