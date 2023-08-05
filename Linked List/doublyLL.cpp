@@ -202,7 +202,7 @@ int main(){
 
     deleteNode(6,head,tail);
     printLinkedList(head);
-
-    cout<<"Length of Linked List : "<<getLengthNode(head)<<endl;
+    int res = getLengthNode(head);
+    cout<<"Length of Linked List : "<<res<<endl;
     return 0;
 }
