@@ -70,7 +70,7 @@ Node* detectNode(Node* head){
         fast = fast->next->next;
         slow = slow->next;
         if(slow == fast){
-            //cout<<"Intersect at "<<slow->data<<endl;
+            cout<<"Intersect at "<<slow->data<<endl;
             slow = head;
             while(slow != fast){
                 slow = slow->next;
@@ -94,7 +94,7 @@ int main(){
     insertNode(tail,19);
     insertNode(tail,18);
     insertNode(tail,21);
-    tail->next = head->next->next->next;
+    tail->next = head->next->next->next->next;
 
     cout<<"Head : "<<head->data<<endl;
     cout<<"Tail : "<<tail->next->data<<endl;

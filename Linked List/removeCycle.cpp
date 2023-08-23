@@ -79,7 +79,7 @@ int main(){
     insertNode(tail, 28);
     insertNode(tail, 32);
 
-    tail->next = head->next->next;
+    tail->next = head->next->next->next;
 
     cout<<"Head "<<head->data<<endl;
     cout<<"Tail "<<tail->next->data<<endl;
