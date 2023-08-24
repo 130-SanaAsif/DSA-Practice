@@ -41,7 +41,7 @@ void printNode(Node* &head){
 //SC - o(1).
 
 Node* removeDuplicate(Node* head){
-    if(head == NULL && head->next != NULL){
+    if(head == NULL && head->next == NULL){
         return head;
     }
 
@@ -99,7 +99,7 @@ Node* removeDuplicate(Node* head){
 //TC - O(n).
 //SC - O(n).
 Node* Remove(Node* head){
-    if(head == NULL){
+    if(head == NULL && head->next == NULL){
         return head;
     }
     map<int, int>visit;

@@ -38,7 +38,7 @@ void printNode(Node* &head){
 }
 
 Node* solve(Node* &head1, Node* &head2){
-    //Casr for one data in head1 list.
+    //Case for one data in head1 list.
     if(head1->next == NULL){
         head1->next = head2;
         return head1;
@@ -69,6 +69,7 @@ Node* solve(Node* &head1, Node* &head2){
     }
     return head1;
 }
+
 Node* mergeSortList(Node* head1, Node* head2){
     if(head1 == NULL){
         return head2;
@@ -86,6 +87,9 @@ Node* mergeSortList(Node* head1, Node* head2){
     }
 }
 
+//Approach 2 using recursion.
+//TC - O(n).
+//SC - O(n).
 Node* recursion(Node* head1, Node* head2){
     if(head1 == NULL){
         return head2;

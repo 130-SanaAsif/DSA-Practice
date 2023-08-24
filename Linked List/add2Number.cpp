@@ -114,15 +114,16 @@ Node* addTwoList(Node* first, Node* second){
 int main(){
     Node* head1 = NULL;
     Node* head2 = NULL;
-    insertNode(head1, 2);
-    insertNode(head1,4);
+    insertNode(head1, 1);
     insertNode(head1,9);
+    insertNode(head1,10);
+    insertNode(head1,11);
     printNode(head1);
 
+    insertNode(head2,2);
     insertNode(head2,5);
-    insertNode(head2,6);
-    insertNode(head2,4);
-    insertNode(head2,9);
+    insertNode(head2,12);
+    // insertNode(head2,9);
     printNode(head2);
 
     Node* res = addTwoList(head1,head2);

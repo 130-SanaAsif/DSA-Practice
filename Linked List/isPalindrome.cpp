@@ -78,7 +78,7 @@ bool checkPalindrome(Node* head){
     Node* head1 = head;
     Node* head2 = mid->next;
 
-    while(head2 != NULL){
+    while(head2->next != NULL){
         if(head1->data != head2->data){
             return false;
         }
@@ -101,7 +101,7 @@ bool reverseArr(vector<int>arr){
     int e = n-1;
     while(s <= e){
         if(arr[s] != arr[e]){
-            return 0;
+            return false;
         }
         s++;
         e--;
@@ -127,7 +127,7 @@ int main(){
     insertNode(head,1);
     insertNode(head,2);
     insertNode(head,3);
-    insertNode(head,3);     
+    insertNode(head,2);     
     insertNode(head,1);
     printNode(head);
 

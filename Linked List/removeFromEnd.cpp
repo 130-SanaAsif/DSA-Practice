@@ -85,6 +85,7 @@ Node*deleteNth(Node* head, int pos){
     temp->next = temp->next->next;
     return head;
 }
+
 Node* removeNthFromEnd(Node* head, int n){
     if(head ->next == NULL){
         return NULL;
@@ -111,11 +112,18 @@ int main(){
     insertNode(head,14);
     insertNode(head,6);
     insertNode(head,32);
+    // insertNode(head, 54);
+    // insertNode(head, 124);
+    // insertNode(head, 144);
+    // insertNode(head, 58);
+    // insertNode(head, 145);
+    // insertNode(head, 86);
+    // insertNode(head, 127);
+    // insertNode(head, 148);
+
     printNode(head);
 
-    
-
-    Node* ans = removeNthFromEnd(head,9);
+    Node* ans = removeNthFromEnd(head,1);
     printNode(ans);
 
     return 0;
