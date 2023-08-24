@@ -86,10 +86,10 @@ Node* add1ToList(Node* head){
 int main(){
     Node* head = NULL;
 
-    insertNode(head, 2);
-    insertNode(head, 3);
-    insertNode(head, 5);
-    insertNode(head, 8);
+    insertNode(head, 9);
+    insertNode(head, 9);
+    insertNode(head, 9);
+    insertNode(head, 9);
     printNode(head);
 
     Node* res = add1ToList(head);
