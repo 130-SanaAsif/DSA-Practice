@@ -1,1 +1,2 @@
-insertNode(head,7);
+
+}
