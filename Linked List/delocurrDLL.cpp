@@ -25,7 +25,7 @@ void insertNode(Node* &head, int d){
             temp = temp->next;
         }
         temp->next = newNode;
-        newNode->prev = newNode;
+        newNode->prev = temp;
     }
 }
 
@@ -114,8 +114,8 @@ int main(){
     insertNode(head,10);
     printNode(head);
 
-    // Node* ans = delElement(head,10);
-    // printNode(ans);
+    Node* ans = delElement(head,10);
+    printNode(ans);
 
    Node* res = deleteNode(head,10);
    printNode(res);
