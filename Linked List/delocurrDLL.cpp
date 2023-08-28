@@ -72,31 +72,33 @@ Node* delElement(Node* head, int k){
 //SC - O(1).
 
 Node* deleteNode(Node* head, int k){
-    Node* answer = new Node(-1);
+    if (head == NULL)
+        return head;
 
-    answer->next = head;
-    head->prev = answer;
+    Node* ans = new Node(-1);
 
-    Node* current = head;
+    ans->next = head;
+    head->prev = ans;
 
-    while(current!=NULL){
-      if (current->data == k) {
-        Node *prevNode = current->prev;
-        Node *nextNode = current->next;
+    Node* curr = head;
+    while(curr != NULL){
+        if(curr->data == k){
+            Node* nextNode = curr->next;
+            Node* prevNode = curr->prev;
 
-        prevNode->next = nextNode;
-        if(nextNode!=NULL){
-            nextNode->prev = prevNode;
+            prevNode->next = nextNode;
+            if(nextNode != NULL){
+                nextNode->prev = prevNode;
+            }
+            delete curr;
+            curr = nextNode;
         }
-        delete current;
-        current = nextNode;
-      }
-      else{
-          current = current->next;
-      }
+        else{
+            curr = curr->next;
+        }
     }
     head->prev = NULL;
-    head = answer->next;
+    head  = ans->next;
     return head;
 }
 
@@ -110,14 +112,13 @@ int main(){
     insertNode(head,5);
     insertNode(head,20);
     insertNode(head,10);
-
     printNode(head);
 
     // Node* ans = delElement(head,10);
     // printNode(ans);
 
-   Node* res = deleteNode(head, 10);
+   Node* res = deleteNode(head,10);
    printNode(res);
 
     return 0;
-}
+} 
