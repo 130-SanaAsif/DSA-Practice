@@ -72,6 +72,9 @@ return cloneHead;
 
 }
 
+//Optimised Approach.
+//TC - O(n).
+//SC - O(1).
 Node* cloneList(Node* head){
 
     Node* cloneHead = NULL;
