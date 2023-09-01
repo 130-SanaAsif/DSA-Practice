@@ -3,7 +3,7 @@
 #include<vector>
 using namespace std;
 
-int countDistint(const std::vector<int> &a){
+int countDistint(vector<int> &a){
     unordered_set<int>s;
     for(int ele:a){
         s.insert(ele);
