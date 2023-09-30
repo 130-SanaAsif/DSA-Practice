@@ -1,2 +1,1 @@
-
-    return x;
+cout<<"The size of stack is "<<st.size(head)<<endl;
