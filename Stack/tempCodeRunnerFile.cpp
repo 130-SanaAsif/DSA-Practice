@@ -1,1 +1,4 @@
-cout<<"The size of stack is "<<st.size(head)<<endl;
+while(!st.empty()){
+    //     cout<<st.top()<<" ";
+    //     st.pop();
+    // }
