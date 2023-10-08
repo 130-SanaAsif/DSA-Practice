@@ -45,7 +45,30 @@ public:
 // };
 
 int main(){
+    //Static Allocation
     hero gobbo;
+
+    //Dynamic Allocation
+    hero *a = new hero;
+
+    // (*a).setEnergy(95);
+    // (*a).setHealth(100);
+    // (*a).setLevel('A');
+
+    // cout<<"Gobbo health is "<<(*a).getHealth()<<endl;
+    // cout<<"Gobbo level is "<<(*a).getLevel()<<endl;
+    // cout<<"Gobbo energy is "<<(*a).getEnergy()<<"%"<<endl;
+
+
+    a->setEnergy(95);
+    a->setHealth(100);
+    a->setLevel('A');
+
+    cout<<"Gobbo health is "<<a->getHealth()<<endl;
+    cout<<"Gobbo level is "<<a->getLevel()<<endl;
+    cout<<"Gobbo energy is "<<a->getEnergy()<<"%"<<endl;
+    
+
     // weapon immune;
     gobbo.setHealth(80);
     gobbo.setLevel('A');
