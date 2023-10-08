@@ -27,13 +27,15 @@ class solution{
 };
 
 int main(){
-    vector<long long>arr = {6,8,0,1,3};
+    // vector<long long>arr = {6,8,0,1,3}
+    vector<long long>arr = {1,5,3,4,2};
     solution obj;
     obj.printArray(arr);
     vector<long long>res = obj.NextSmaller(arr);
-    for(long long i=0; i<res.size(); i++){
-        cout<<res[i]<<" ";
-    }
+    // for(long long i=0; i<res.size(); i++){
+    //     cout<<res[i]<<" ";
+    // }
+    obj.printArray(res);
     cout<<endl;
     return 0;
 }
