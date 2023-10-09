@@ -52,6 +52,7 @@ class Solution {
                     width = i;
                 else
                     width = i-s.top()-1;
+                    // cout<<width<<endl;
                 maxA = max(maxA, width*height);
             }
             s.push(i);
@@ -60,7 +61,7 @@ class Solution {
     }
 };
 int main() {
-  vector<int> heights = {1,2,3,4,5};
+  vector<int> heights = {2,1,5,6,2,3};
   Solution obj;
   cout << "The largest area in the histogram is " << obj.largestRectangleArea(heights); 
   return 0;
