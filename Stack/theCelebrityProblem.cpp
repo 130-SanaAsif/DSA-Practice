@@ -60,10 +60,12 @@ int celebrity(vector<vector<int>>m, int n ){
 }
 
 int main(){
-    vector<vector<int>>m = {{0,1,0},
-                            {0,0,0},
-                            {0,1,0}};
-    int n = 3;
+    vector<vector<int>>m = {{0,0,1,0,0},
+                            {0,0,1,0,1},
+                            {0,0,0,0,0},
+                            {0,0,1,1,1},
+                            {1,0,1,0,0}};
+    int n = 5;
 
     int ans = celebrity(m,n);
     cout<<"The celebrity is "<<ans<<endl;
