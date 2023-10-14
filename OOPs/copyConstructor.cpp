@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//Copy Constructor.
+//Copy Constructor Explicit way.
 class Original{
 private:
     int x;
@@ -19,6 +19,23 @@ public:
     }
 };
 
+//Copy Constructor implicit way.
+class car{
+public:
+    int wheels;
+    int mileage;
+    int speed;
+
+    void display(){
+        wheels = 4;
+        mileage = 90;
+        speed = 100;
+
+        cout<<"Wheels - "<<wheels<<endl;
+        cout<<"Mileage - "<<mileage<<endl;
+        cout<<"Speed - "<<speed<<endl;
+    }
+};
 
 //Member by member intialization.
 class student{
@@ -52,6 +69,8 @@ void student::display(){
     cout<<rno<<" "<<name<<" "<<fee<<endl;
 }
 
+
+
 int main(){
     Original o(10);
     Original copy(o);
@@ -62,5 +81,13 @@ int main(){
 
     student s(st);
     s.disp();
+
+    cout<<"Constructor is called"<<endl;
+    car honda;
+    honda.display();
+
+    cout<<"Copy constructor is called"<<endl;
+    car suzuki(honda);
+    suzuki.display();
     return 0;
 }
