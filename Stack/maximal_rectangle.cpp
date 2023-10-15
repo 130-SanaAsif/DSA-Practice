@@ -24,23 +24,21 @@ int largestRectangleArea(vector<int>&arr){
 int maxRectangle(vector<vector<int>>&mat){
     int n = mat.size();
     int m = mat[0].size();
-    vector<int>cur;
-    cur = mat[0];
-    int maxAns = largestRectangleArea(cur);
+
+    int area = largestRectangleArea(mat[0]);
 
     for(int i=1; i<n; i++){
         for(int j=0; j<m; j++){
-            if(mat[i][j] == 1){
-                cur[j]+=1;
+            if(mat[i][j] != 0){
+                mat[i][j] = mat[i][j] + mat[i-1][j];
             }
             else{
-                cur[j] = 0;
+                mat[i][j] = 0;
             }
         }
-        int curAns = largestRectangleArea(cur);
-        maxAns = max(maxAns, curAns);
+        area = max(area, largestRectangleArea(mat[i]));
     }
-    return maxAns;
+    return area;
 }
 
 int main(){
@@ -49,6 +47,6 @@ int main(){
                             {1,1,0,1,1,1},
                             {1,1,1,1,1,0}};
     int res = maxRectangle(arr);
-    cout<<res;
+    cout<<"The maximal rectangle is = "<<res;
     return 0;
 }
