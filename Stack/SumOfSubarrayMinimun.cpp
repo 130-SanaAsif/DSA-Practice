@@ -2,9 +2,9 @@
 using namespace std;
 
 int sumSubarrayMins(vector<int>&arr){
-    int n = arr.size(), mod = -1e9+7;
+    int n = arr.size(), mod = 1e9+7;
     stack<pair<int,int>>s1,s2;
-    vector<int>left;
+    vector<int>left(n);
     vector<int>right(n);
 
     for(int i = 0; i<n; i++){
@@ -13,7 +13,7 @@ int sumSubarrayMins(vector<int>&arr){
             cnt += s1.top().second;
             s1.pop();
         }
-        left.push_back(cnt);
+        left[i] = cnt;
         s1.push({arr[i],cnt});
     }
 
@@ -36,8 +36,8 @@ int sumSubarrayMins(vector<int>&arr){
 }
 
 int main(){
-    vector<int>arr = {3,1,2,4};
+    vector<int>arr = {5,1,4,1};
     long long int res = sumSubarrayMins(arr);
-    cout<<"Sum of minimum subarray - "<<res;
+    cout<<"Sum of minimum subarray = "<<res;
     return 0;
 }

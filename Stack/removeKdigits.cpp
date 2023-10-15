@@ -4,6 +4,7 @@ using namespace std;
 string removeKDigits(string num, int k){
     if(num.length() <= k)
         return "0";
+        
     if(k==0)
         return num;
     string res = "";
