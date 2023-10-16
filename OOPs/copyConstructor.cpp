@@ -4,8 +4,7 @@ using namespace std;
 //Copy Constructor Explicit way.
 class Original{
 private:
-    int x;
-
+    int x;   
 public:
     Original(int x){
         this->x = x;
