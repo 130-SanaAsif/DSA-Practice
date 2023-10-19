@@ -1,4 +1,2 @@
-while(!st.empty()){
-    //     cout<<st.top()<<" ";
-    //     st.pop();
-    // }
+int ans = s.getMin();
+    // cout<<ans<<endl;
