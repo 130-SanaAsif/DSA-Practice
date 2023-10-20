@@ -1,43 +1,104 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Optimal Approach.
+// TC - O(1).
+// SC - O(N).
+// class SpecialStack{
+// public:
+//     stack<int>st1;
+//     stack<int>st2;
+
+//     void push(int data){
+//         if(st1.empty() && st2.empty()){
+//             st1.push(data);
+//             st2.push(data);
+//         }
+//         else{
+//             st1.push(data);
+//             st2.push(min(data,st1.top()));
+//         }
+//     }
+
+//     int getMin(){
+//         if(st1.empty()){
+//             return -1;
+//         }
+//         int ans = st2.top();
+//         return ans;
+//     }
+
+//     void pop(){
+//         if(st1.empty() || st2.empty()){
+//             cout<<"Stack Underflow"<<endl;
+//         }
+//         st1.pop();
+//         st2.pop();
+//     }
+
+//     int top(){
+//         int ans = st1.top();
+//         return ans;
+//     }
+
+// };
+
+//Space Optimise Approach.
+
 class SpecialStack{
-public:
-    stack<int>st1;
-    stack<int>st2;
-    int mini = INT_MAX;
+    public:
+        stack<int>s;
+        int mini;
 
-    void push(int data){
-        st1.push(data);
-        int curr = st1.top();
-        mini = min(mini,curr);
-        //cout<<mini<<endl;
-        st2.push(mini);
-    }
-
-    int getMin(){
-        if(st1.empty()){
-            return -1;
+        void push(int data){
+            if(s.empty()){
+                s.push(data);
+                mini = data;
+            }
+            else{
+                if(data < mini){
+                    int val = 2*data - mini;
+                    s.push(val);
+                    mini = data;
+                }
+                else{
+                    s.push(data);
+                }
+            }
         }
-        int ans = st2.top();
-        return ans;
-    }
 
-    void pop(){
-        if(st1.empty() || st2.empty()){
-            cout<<"Stack Underflow"<<endl;
+        void pop(){
+            int curr = s.top();
+            if(curr > mini){
+                s.pop();
+            }
+            else{
+                int val = 2*mini - curr;
+                mini = val;
+                s.pop();
+            }
         }
-        st1.pop();
-        st2.pop();
 
-        mini = INT_MAX;
-    }
+        int top(){
+            if(s.empty()){
+                return -1;
+            }
 
-    int top(){
-        int ans = st1.top();
-        return ans;
-    }
+            int curr = s.top();
+            if(curr < mini){
+                return mini;
+            }
+            else{
+                return curr;
+            }
+        }
 
+        int getMin(){
+            if(s.empty()){
+                return -1;
+            }
+            return s.top();
+        }
 };
 int main(){
     SpecialStack s;
