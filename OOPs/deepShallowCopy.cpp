@@ -99,7 +99,7 @@ int main(){
     parrot.display();
 
 
-    //use default copy constructor.
+    //use uder-defined copy constructor.
     Bird peacock(parrot);//first way to call.
     Bird pigeon = peacock;//second way to call;
     peacock.display();
