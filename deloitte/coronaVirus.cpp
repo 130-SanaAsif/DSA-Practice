@@ -3,17 +3,18 @@ using namespace std;
 
 void coronaVirus(int arr[], int n, int spike){
     int ans;
-    int brr[n];
+    // int brr[n];
 
     for(int i=0; i<n;i++){
         int m = arr[i];
         ans = m>>spike;
-        brr[i] = ans;
+        cout<<ans<<" ";
+        // brr[i] = ans;
     }
-    for(int i=0; i<n; i++){
-            cout<<brr[i]<<" ";
-        }
-    cout<<endl;
+    // for(int i=0; i<n; i++){
+    //         cout<<brr[i]<<" ";
+    //     }
+    // cout<<endl;
 }
 
 int main(){
