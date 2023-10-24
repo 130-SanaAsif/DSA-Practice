@@ -62,10 +62,13 @@ int main(){
 CircularQueue cq(4);
 cq.push(5);
 cq.push(6);
+
 cout<<cq.pop()<<endl;
+
 cq.push(7);
 cq.push(10);
 cq.push(11);
+
 cout<<cq.pop()<<endl;
 cout<<cq.pop()<<endl;
 
