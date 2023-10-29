@@ -114,6 +114,7 @@ public:
 User() : pBase(0){
 
         int input;
+        cout<<"Step 1"<<endl;
       cout << "Enter ID (1, 2 or 3): ";
       cin >> input;
       while( (input != 1) && (input != 2) && (input != 3) ){
@@ -133,6 +134,7 @@ User() : pBase(0){
 
     void Action(){
         // Duplicate current object
+        cout<<"Step 2"<<endl;
         Base *pNewBase = pBase ->clone();
 
         // Change its attributes
