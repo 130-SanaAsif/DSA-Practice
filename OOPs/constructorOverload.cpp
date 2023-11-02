@@ -21,13 +21,18 @@ public:
     }
 };
 int main(){
-    Construct a;
-    cout<<"Constructor 1 = ";
-    a.disp();
 
     Construct b(10,20);
     cout<<"Constructor 2 = ";
     b.disp(); 
+
+    Construct a;
+    cout<<"Constructor 1 = ";
+    a.disp();
+
+    // Construct b(10,20);
+    // cout<<"Constructor 2 = ";
+    // b.disp(); 
 
     Construct c(4);
     cout<<"Constructor 3 = ";
