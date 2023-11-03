@@ -24,14 +24,17 @@ vector<long long>firstNegativeInteger(vector<long long int>&arr, long long int k
     }
 
     for(int i=k; i<n; i++){
+        //removal
         if(!dq.empty() && i-dq.front() >= k){
             dq.pop_front();
         }
 
+        //addition
         if(arr[i] < 0){
             dq.push_back(i);
         }
-
+        
+        //ans store
         if(dq.size() > 0){
             ans.push_back(arr[dq.front()]);
         }
