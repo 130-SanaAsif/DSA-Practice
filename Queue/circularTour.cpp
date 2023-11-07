@@ -38,7 +38,7 @@ int main(){
     for(int i=0; i<n; i++){
         cin>>arr[i].petrol>>arr[i].distance;
     }
-
+    
     int res = circularTour(arr,n);
     cout<<"The position where circle is completed = "<<res;
     
