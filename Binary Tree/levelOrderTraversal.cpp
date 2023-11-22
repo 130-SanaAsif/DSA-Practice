@@ -13,6 +13,7 @@ public:
         this->right = NULL;
     }
 };
+
 node* buildBinaryTree(node* root){
     cout<<"Enter your data: "<<endl;
     int data;
@@ -30,6 +31,7 @@ node* buildBinaryTree(node* root){
 
     return root;
 }
+
 void levelOrderTraversal(node* root){
     queue<node*>q;
     q.push(root);
