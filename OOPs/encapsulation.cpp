@@ -19,24 +19,63 @@ using namespace std;
 //     }
 // };
 
-class temp{
+// class temp{
+// private:
+//     int a;
+//     int b;
+// public:
+//     int solve(int x){
+//         a = x;
+//         b = a/2;
+//         return b;
+//     }
+// };
+
+class person{
 private:
-    int a;
-    int b;
+    string name;
+    int age;
 public:
-    int solve(int x){
-        a = x;
-        b = a/2;
-        return b;
+    person(string name, int age){
+        this->name = name;
+        this->age = age;
+    }
+
+    void setName(string name){
+        this->name = name;
+    }
+
+    string getName(){
+        return name;
+    }
+
+    void setAge(int age){
+        this->age = age;
+    }
+
+    int getAge(){
+        return age;
     }
 };
 
 int main(){
     // student s;
-    int x;
-    cin>>x;
-    temp half;
-    int ans = half.solve(x);
-    cout<<ans;
+    // int x;
+    // cin>>x;
+    // temp half;
+    // int ans = half.solve(x);
+    // cout<<ans;
+
+    person p("John Doe", 30);
+
+    cout<<"Name - "<<p.getName()<<endl;
+    cout<<"Age - "<<p.getAge()<<endl;
+
+    p.setName("Jane Doe");
+    p.setAge(34);
+
+    cout<<"Name - "<<p.getName()<<endl;
+    cout<<"Age - "<<p.getAge()<<endl;
+
 return 0;
 }
