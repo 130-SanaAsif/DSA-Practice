@@ -33,6 +33,7 @@ node*buildTree(node*root){
     return root;
 }
 
+//Recursive Way.
 void preOrder(node*root){
     if(root == NULL){
         return;
@@ -43,10 +44,39 @@ void preOrder(node*root){
     preOrder(root->right);
 }
 
+//Iterative way.
+vector<int>preOrderTraversal(node*root){
+    vector<int>ans;
+    if(root == NULL){
+        return ans;
+    }
+    stack<node*>s;
+    s.push(root);
+
+    while(!s.empty()){
+        node*temp = s.top();
+        ans.push_back(temp->data);
+        s.pop();
+
+        if(temp->right){
+            s.push(temp->right);
+        }
+        if(temp->left){
+            s.push(temp->left);
+        }
+    }
+    return ans;
+}
+
 int main(){
     node*root = NULL;
     root = buildTree(root);
     preOrder(root);
+    cout<<endl;
+    vector<int>ans = preOrderTraversal(root);
+    for(int i=0; i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
     
 return 0;
 }
