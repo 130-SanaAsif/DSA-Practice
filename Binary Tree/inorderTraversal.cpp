@@ -42,11 +42,36 @@ void inOrderTraversal(node*root){
     inOrderTraversal(root->right);
 }
 
+vector<int>inorder(node*root){
+    vector<int>ans;
+    stack<node*>s;
+
+    while(true){
+        if(root != NULL){
+            s.push(root);
+            root = root->left;
+        }
+        else{
+            if(s.empty()) break;
+            root = s.top();
+            ans.push_back(root->data);
+            s.pop();
+            root = root->right;        
+        }
+    }
+    return ans;
+}
+
 int main(){
     node*root = NULL;
     root = buildTree(root);
     cout<<"Inoder Traversal "<<endl;
     inOrderTraversal(root);
+    cout<<endl;
+    vector<int>ans = inorder(root);
+    for(int i=0; i<ans.size(); i++){
+        cout<<ans[i]<<" ";
+    }
 
 return 0;
 }
