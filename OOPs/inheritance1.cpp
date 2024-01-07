@@ -82,6 +82,7 @@ class Student : private Person{
         void display_c();
 };
 
+
 void Student :: set_c(){
     set_p();
     cout<<"Enter the Course : ";
