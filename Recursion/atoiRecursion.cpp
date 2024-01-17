@@ -49,6 +49,5 @@ int main(){
     string s = "   -249589fg";
     int res = myAtoi(s);
     cout<<res<<endl;
-
     return 0;
 }
