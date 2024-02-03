@@ -30,12 +30,12 @@ vector<string>generateString(int n){
     return ans;
 }
 int main(){
-    int n = 3;
-    vector<string>ans = generateString(n);
+    // int n = 3;
+    // vector<string>ans = generateString(n);
 
-    for(int i=0; i<ans.size(); i++){
-        cout<<ans[i]<<" ";
-    }
-    
+    // for(int i=0; i<ans.size(); i++){
+    //     cout<<ans[i]<<" ";
+    // }
+
 return 0;
 }
