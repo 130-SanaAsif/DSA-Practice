@@ -78,9 +78,9 @@ int countSub(int ind, int s, int sum, int arr[], int n){
     return l+r;
 }
 int main(){
-    int arr[] = {1,2,1};
+    int arr[] = {1, 2, 3, 1, 1, 1};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int sum = 2;
+    int sum = 3;
     vector<int>ds;
 
     SubKSum(0,ds,0,sum,arr,n);
