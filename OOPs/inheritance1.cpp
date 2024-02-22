@@ -1,6 +1,7 @@
 // #include <iostream> 
 // using namespace std; 
 
+// //Example: define member function without argument within the class
 // class Person { 
 // 	int id; 
 // 	char name[100]; 
@@ -50,6 +51,7 @@
 // }
 
 
+// Example: define member function without argument outside the class
 #include<bits/stdc++.h>
 using namespace std;
 

@@ -24,11 +24,23 @@ class Dog : public Animal{//Inheriting the property of parent class,
         }
 };
 
+class cat : public Animal{
+    public:
+        void meow(){
+            cout<<"Meow Meow"<<endl;
+        }        
+};
+
 int main(){
     Dog d;
+    cat c;
     d.age = 7;
     cout<<d.age<<endl;
     d.bark();
     d.eat();
+
+    c.legs = 4;
+    cout<<c.legs<<endl;
+    c.meow();
 return 0;
 }
