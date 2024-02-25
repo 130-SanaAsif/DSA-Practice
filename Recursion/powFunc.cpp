@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Time Complexity - O(log n).
+//Space Complexity - O(1).
 double myPow(double x, int n){
     double ans = 1.0;
     long long nn = n;
@@ -29,10 +31,17 @@ double myPow(double x, int n){
 int main(){
 
     double x = 2.000;
-    int n = -2;
+    long long n = 10;
 
     double res = myPow(x,n);
     cout<<res<<endl;
+
+    // double ans = 1.0000;
+    // for(int i=0; i<n; i++){
+    //     ans = ans*x;
+    // }
+
+    // cout<<ans;
     
 return 0;
 }
