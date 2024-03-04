@@ -1,18 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//Using memoization.
 int f(int n, vector<int>&arr, vector<int>&dp){
-    // dp[0] = 0;
-    // for(int i=1; i<=n; i++){
-    //     int pick = arr[i];
-    //     if(i>1){
-    //         pick = arr[i] +dp[i-2];
-    //     }
-    //     int notPick = 0 + dp[i-1];
-    //     dp[i] = max(pick, notPick);
-    // }
-    // return dp[n-1];
-
     if(n == 0){
         return arr[n];
     }

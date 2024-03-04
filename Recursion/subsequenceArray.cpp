@@ -21,7 +21,7 @@ void SubArray(int ind, vector<int>&ds, int arr[], int n){
 }
 
 int main(){
-    int arr[] = {3,1,2};
+    int arr[] = {1,2,2};
     int n = 3;
     vector<int>ds;
     SubArray(0,ds,arr,n);
