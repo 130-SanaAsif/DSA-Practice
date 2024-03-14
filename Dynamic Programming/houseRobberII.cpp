@@ -16,7 +16,7 @@ int f(int n, vector<int>&arr, vector<int>&dp){
     return dp[n] = max(pick,notPick);
 }
 
-int tabulation(vector<int>&arr){
+int memoization(vector<int>&arr){
     int n = arr.size();
     vector<int>dp(n,-1);
     int ans = f(n-1,arr,dp);
@@ -40,8 +40,8 @@ int houseRobber(vector<int>&arr){
         temp2.push_back(arr[i]);
     }
 
-    int ans1 = tabulation(temp1);
-    int ans2 = tabulation(temp2);
+    int ans1 = memoization(temp1);
+    int ans2 = memoization(temp2);
 
     return max(ans1,ans2);
 }
