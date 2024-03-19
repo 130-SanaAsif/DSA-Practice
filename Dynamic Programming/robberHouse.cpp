@@ -82,7 +82,7 @@ int houseRobber(vector<int>&nums){
 }
 
 int main(){
-    vector<int>nums = {1,2,3,1};//{1,3,5,7,8,6};
+     vector<int>nums = {1,3,5,7,8,6};//{1,2,3,1};
 
     int res1 = recur(nums);
     cout<<"Using Recursion = "<<res1<<endl;

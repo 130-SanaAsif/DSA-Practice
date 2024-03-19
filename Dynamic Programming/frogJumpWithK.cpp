@@ -36,7 +36,7 @@ int solve2(int n, int k, vector<int>&arr, vector<int>&dp){
     return dp[n] = minstep;
 }
 
-//Uisng Tabulation.
+//Using Tabulation.
 
 int minCost(int n, int k, vector<int>&arr, vector<int>&dp){
     dp[0] = 0;
