@@ -8,7 +8,7 @@ void printArray(int n, vector<int>&arr){
     cout<<endl;
 }
 
-int modInRange(int n, vector<int>&arr){
+int dreamyCars(int n, vector<int>&arr){
     
     int res = 0;
     for(int i=0; i<n; i++){
@@ -42,7 +42,7 @@ int main(){
  
     printArray(n,arr);
 
-    int res = modInRange(n,arr);
+    int res =dreamyCars(n,arr);
     int ans = methodTwo(n,arr);
     cout<<ans<<endl;
     cout<<res;
