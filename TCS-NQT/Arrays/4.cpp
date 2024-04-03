@@ -6,6 +6,8 @@ void printArray(int arr[], int n){
     }
     cout<<endl;
 }
+
+
 void reverse(int arr[], int n){
     int l = 0;
     int h = n-1;
