@@ -7,6 +7,12 @@ void printArray(int arr[], int n){
     cout<<endl;
 }
 
+void swapArray(int *a, int *b){
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 void reverse(int arr[], int n){
     int l = 0;
@@ -14,7 +20,7 @@ void reverse(int arr[], int n){
 
     while(l < h){
         
-        swap(arr[h], arr[l]);
+        swapArray(&arr[h], &arr[l]);
         l++;
         h--;
         
