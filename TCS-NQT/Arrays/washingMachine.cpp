@@ -11,7 +11,7 @@ int main(){
     if(weight == 0){
       cout<<"0 minutes"<<endl;
     }
-    else if(weight<=2000 && weight != 0){
+    else if(weight>0 && weight<=2000){
         cout<<"25 minutes"<<endl;
     }
     else if(weight >= 2000 && weight <= 4000){
