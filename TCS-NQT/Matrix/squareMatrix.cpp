@@ -2,14 +2,13 @@
 using namespace std;
 
 int main(){
-    int r,c;
+    int r;
     cin>>r;
-    c = r;
 
-    int arr[r][c];
+    int arr[r][r];
 
     for(int i=0; i<r; i++){
-        for(int j=0; j<c; j++){
+        for(int j=0; j<r; j++){
             cin>>arr[i][j];
         }
     }
