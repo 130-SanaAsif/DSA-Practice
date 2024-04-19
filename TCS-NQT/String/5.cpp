@@ -11,6 +11,16 @@ int main(){
             i--;
         }
     }
+
+    // int cnt = 0;
+    // for(int i=0; s[i]; i++){
+    //     if(s[i] != ' '){
+    //         s[cnt] = s[i];
+    //         cnt++;
+    //     }
+    // }
+    // s[cnt] = '\0';
+
     cout<<s<<endl;
 return 0;
 }
