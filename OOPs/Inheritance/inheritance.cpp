@@ -31,6 +31,21 @@ class cat : public Animal{
         }        
 };
 
+// class base{
+//     public:
+//         void show(){
+//             cout<<"This is a base class"<<endl;
+//         }
+// };
+
+// class child : public base{
+//     public:
+//         void show2(){
+//             show();
+//             cout<<"This is a child class"<<endl;
+//         }
+// };
+
 int main(){
     Dog d;
     cat c;
@@ -42,5 +57,8 @@ int main(){
     c.legs = 4;
     cout<<c.legs<<endl;
     c.meow();
+
+    // child e;
+    // e.show2();
 return 0;
 }
